@@ -1,19 +1,38 @@
 <table class="user-listing">
   <tr>
-    <th>ID</th>
     <th>Email</th>
-    <th>Admin</th>
-    <th>Created_at</th>
-    <th>Updated_at</th>
+
+    <% if current_user.admin? %>
+      <th>Actions</th>
+    <% end %>
+
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Points of Interests</th>
   </tr>
 
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.email %></td>
-      <td><%= user.admin %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.updated_at %></td>
-    </tr>
+      <% if user.email %>
+        <td><%= user.email %></td>
+      <% end %>
+
+      <% if current_user.admin? %>
+        <td><%= link_to '', home_path(user), method: :delete, class: 'glyphicon glyphicon-trash' %></td>
+        <% end %>
+
+      <% if user.gender %>
+        <td><%= user.gender %></td>
+      <% end %>
+
+      <% if user.age %>
+        <td><%= user.age %></td>
+      <% end %>
+
+      <% if user.points_of_interests.any? %>
+        <% user.points_of_interests.each do |points_of_interest| %>
+          <td><%= points_of_interest.points %></td>
+        <% end %>
+      <% end %>
   <% end %>
 </table>

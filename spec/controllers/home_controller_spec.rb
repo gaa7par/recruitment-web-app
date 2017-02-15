@@ -19,4 +19,23 @@ RSpec.describe HomeController, type: :controller do
       end
     end
   end
+
+  describe '#destroy' do
+    context 'user is not an admin' do
+      let(:user) { create(:user) }
+      let(:call_request) { delete :destroy, params: { id: user.id } }
+
+      before { sign_in user }
+      it { expect { call_request }.not_to change { User.count } }
+    end
+
+    context 'user is an admin' do
+      let(:admin) { create(:user, :admin) }
+      let!(:user) { create(:user) }
+      let(:call_request) { delete :destroy, params: { id: user.id } }
+
+      before { sign_in admin }
+      it { expect { call_request }.to change { User.count }.by -1 }
+    end
+  end
 end
