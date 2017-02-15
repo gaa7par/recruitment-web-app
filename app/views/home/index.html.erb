@@ -1,0 +1,17 @@
+<table class="user-listing">
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Created_at</th>
+    <th>Updated_at</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.updated_at %></td>
+    </tr>
+  <% end %>
+</table>
