@@ -36,3 +36,7 @@
       <% end %>
   <% end %>
 </table>
+
+<% if current_user.admin? %>
+  <%= link_to 'Navigate to the admin panel', admin_path %>
+<% end %>
