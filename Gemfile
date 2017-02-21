@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'cocoon', '~> 1.2.9'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.2.0'
 gem 'devise-bootstrap-views', '~> 0.0.10'
@@ -16,6 +17,7 @@ gem 'puma', '~> 3.0'
 gem 'pundit', '~> 1.1.0'
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form', '~> 3.4.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
