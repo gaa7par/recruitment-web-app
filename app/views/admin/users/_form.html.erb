@@ -1,0 +1,20 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+  <%= f.input :email %>
+  <%= f.input :gender %>
+  <%= f.input :age %>
+
+  <h3>Points</h3>
+
+  <%= f.simple_fields_for :points_of_interests do |points| %>
+    <%= render 'points_of_interest_fields', f: points %>
+    <div class="links">
+      <%= link_to_add_association 'Add points', f, :points_of_interests, class: 'btn btn-warning' %>
+    </div>
+  <% end %>
+
+  <br />
+
+  <%= f.button :submit, class: 'btn btn-success' %>
+<% end %>
+
+<%= link_to 'Back', admin_users_path %>

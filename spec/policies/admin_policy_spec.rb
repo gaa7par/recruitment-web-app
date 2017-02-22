@@ -6,7 +6,7 @@ RSpec.describe AdminPolicy, type: :policy do
   let(:user) { create(:user) }
   let(:admin) { create(:user, :admin) }
 
-  permissions :show? do
+  permissions :index?, :create?, :update? do
     it { is_expected.not_to permit(user) }
     it { is_expected.to permit(admin) }
   end
