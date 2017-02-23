@@ -1,10 +1,16 @@
 module Admin
   class UsersController < ApplicationController
+    NUMBER_OF_POINTS = "SELECT SUM(points) FROM users
+      JOIN points_of_interests ON user_id = users.id
+      WHERE gender = 'woman' AND age BETWEEN 20 AND 30
+      AND type_of_points = 'health' AND name LIKE 'cosm%'".freeze
+
     before_action :user, only: [:edit, :update]
     before_action :authorize_admin
 
     def index
       @users = User.all
+      @result = ActiveRecord::Base.connection.exec_query NUMBER_OF_POINTS
     end
 
     def new
