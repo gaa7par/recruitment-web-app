@@ -38,5 +38,6 @@
 </table>
 
 <% if current_user.admin? %>
+  <%= link_to 'Export to CSV', "#{home_index_path}.csv", class: 'btn btn-primary' %>
   <%= link_to 'Navigate to the admin panel', admin_users_path %>
 <% end %>
