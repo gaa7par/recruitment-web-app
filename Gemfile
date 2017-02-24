@@ -28,6 +28,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener', '~> 1.4.1'
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails', '~> 0.3.5'
   gem 'rubocop', '~> 0.47.1', require: false

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index, :destroy] do
     collection do
       post :import
+      post :send_email
     end
   end
 
