@@ -1,3 +1,8 @@
+<%= search_form_for @q, url: home_index_path do |f| %>
+  <%= f.label :email_cont %>
+  <%= f.search_field :email_cont, class: 'form-control', placeholder: 'Search...' %>
+<% end %>
+
 <table class="user-listing">
   <tr>
     <th>Email</th>
