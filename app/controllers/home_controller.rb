@@ -18,4 +18,9 @@ class HomeController < ApplicationController
       render :index
     end
   end
+
+  def send_email
+    user = User.find_by(id: params[:user_id])
+    UserMailerService.new(user, current_user).run
+  end
 end
